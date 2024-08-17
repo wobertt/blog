@@ -25,7 +25,7 @@ Try all possible pairs of indices $(i, j)$ to see if they satisfy $a_i + a_j = t
 
 ```cpp
 vector<int> twoSum(vector<int>& a, int t) {
-	const int n = numbers.size();
+	const int n = a.size();
 
 	for (int i = 0; i < n; i++) {
 		for (int j = i+1; j < n; j++) {
