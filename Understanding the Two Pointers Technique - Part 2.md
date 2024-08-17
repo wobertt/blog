@@ -6,7 +6,7 @@ The goal today is to discover the linear time algorithm to [11. Container With M
 ## [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/)
 
 ##### Summary of problem statement:
-We are given a sorted array of integers $a_1$, $a_2$, $\dots$, $a_{n}$.
+We are given an unsorted array of integers $a_1$, $a_2$, $\dots$, $a_{n}$.
 
 For any pair of indices $(i, j)$, where $i < j$, define the **score** of $(i, j)$ to be 
 $$\min(a_i, a_j) \cdot (j-i).
