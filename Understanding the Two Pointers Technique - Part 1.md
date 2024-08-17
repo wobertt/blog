@@ -2,7 +2,7 @@ Aug 17, 2024
 ****
 *The problems in this post are taken from the "Two Pointers" section of NeetCode's roadmap. I think his problem selection is good, but his video explanations are subpar. I hope this post serves as a better explanation of the main ideas and common themes of each problem.*
 
-**Prerequisites:** Loops, arrays, time complexity.
+**Prerequisites:** You should be able to code $O(n^2)$ algorithms for the first two problems.
 
 **Problems to try:**
 - https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
@@ -127,10 +127,10 @@ Let's generalize this:
 >2. If $a_l + a_r < t$, then the pair must be in the range $[l+1, r]$.
 >3. If $a_l + a_r > t$, then the pair must be in the range $[l, r-1]$.
 >
->If we ended up in case 2 or 3, set $[l, r]$ to be the new range and try again.
+>If we ended up in case 2 or 3, update $[l, r]$ to the new range and try again.
 >   
 
-The length of the interval $[l, r]$ is initially $n$, and it decreases by $1$ each time we check a pair. That means there are $O(n)$ intervals to check. Our claim also guarantees we will find the correct answer.
+The number of values in the range $[l, r]$ is initially $n$, and this decreases by $1$ each time we check a pair. That means there are $O(n)$ intervals to check. Our claim also guarantees we will find the correct answer.
 ##### Code (Accepted):
 ```cpp
 vector<int> twoSum(vector<int>& a, int t) {
