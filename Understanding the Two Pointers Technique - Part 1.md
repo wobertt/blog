@@ -1,6 +1,6 @@
 Aug 17, 2024
 ****
-*The problems in this post are taken from the "Two Pointers" section of Neetcode's roadmap. I think his problem selection is good, but his video explanations are subpar. I hope this post serves as a better explanation of the main ideas and common themes of each problem.*
+*The problems in this post are taken from the "Two Pointers" section of NeetCode's roadmap. I think his problem selection is good, but his video explanations are subpar. I hope this post serves as a better explanation of the main ideas and common themes of each problem.*
 
 **Prerequisites:** Loops, arrays, time complexity.
 
@@ -82,7 +82,7 @@ Let's check one pair, $(i, j) = (1, 5)$. We get $a_i + a_j = 12$. What does this
 | 5      |     |       |       |       |       |
 <div style="page-break-after: always; visibility: hidden"> pagebreak </div>
 
-**Answer:** By the claim, we know that the sums for $(2, 5)$, $(3, 5)$, and $(4, 5)$ are at least $12$. But $t=11$, so the sums can't be equal to $t$ – they're too big![^7]
+**Answer:** By the claim, we know that the sums for $(2, 5)$, $(3, 5)$, and $(4, 5)$ are at least $12$. But $t=11$, so these sums can't be equal to $t$ – they're too big![^7]
 
 | (i, j) | 1   | 2     | 3     | 4     | 5   |
 | ------ | --- | ----- | ----- | ----- | --- |
