@@ -51,7 +51,7 @@ I've written $(\text{min}) \cdot (\text{length}) = \text{score}$ in each cell. T
 Still, there is some regularity:
 - Consider the first row ($i=1$). Since $a_1$ is the smallest value in the array, $\min(a_1, a_j)$ is constant for this entire row. That means the maximum score for this row must be at $(1, 9)$.
 - Consider the second row $(i=2)$. Since $a_2$ is very large, $\min(a_2, a_j)$ is **not** constant on this row – it varies with $a_j$. It's hard to know the maximum score for this row without checking a lot of values.[^3]
-- Instead, consider the ninth column $(j=9)$. $\min(a_i, a_9)$ fluctuates, but we know that $a_2$ is very large, in the sense that $a_2 \ge a_9$. This shows that $(3, 9)$, $(4, 9)$, $(5, 9)$,$(6, 9)$, $(7, 9)$, and $(8, 9)$ must have smaller score than $(2, 9)$. Can you see why?
+- Instead, consider the ninth column $(j=9)$. $\min(a_i, a_9)$ fluctuates, but we know that $a_2$ is very large, in the sense that $a_2 \ge a_9$. This shows that $(3, 9)$, $(4, 9)$, $(5, 9)$, $(6, 9)$, $(7, 9)$, and $(8, 9)$ must have smaller score than $(2, 9)$. Can you see why?
 
 >[!info] Claim
 >Consider any two indices $l$ and $r$, where $l < r$.
@@ -65,6 +65,7 @@ The score of $(l, j)$ is $\min(a_l, a_j) \cdot (j-l)$, and the score of $(l, r)$
 Comparing each term, we get:
 - $\min(a_l, a_j)$ is at most $a_l$, but $\min(a_l, a_r)$ is exactly $a_l$ (because $a_l \le a_r$).
 - $j-l$ is strictly smaller than $r-l$, because $j < r$.
+
 These two points combine to show that the score of $(l, j)$ is less than the score of $(l, r)$, which proves part 1 of the claim.
 
 A good idea is to draw a diagram (or use the one on LeetCode) to follow along. It's easier to visually see how the lengths and heights of the rectangles formed by $(l, j)$ and $(l, r)$ relate.
@@ -85,7 +86,7 @@ A good idea is to draw a diagram (or use the one on LeetCode) to follow along. I
 >
 >Finally, report $b$ as the maximum score over all pairs.
 
-Steps 2 and 3 use our claim to reduce the number of pairs we had to check.
+Steps 2 and 3 use our claim to reduce the number of pairs we have to check.
 
 The idea is that if $a_l \le a_r$, checking $(l, r)$ makes it useless to check $(l, j)$ for any other value of $j$. **Thus, we're completely done with $l$**, so we can increment it. 
 
