@@ -155,7 +155,7 @@ Notice that I didn't mention the words "two pointers" in my solution – they ar
 ## Footnotes
 
 [^1]: Make sure you understand why this is true. In general, you should aim to **understand every sentence in this post**. If something doesn't make sense, feel free to ask me on Discord.
-[^2]: This is not actually true, since LeetCode's constraints say $n \le 3 \cdot 10^4$ – there are tricks to squeeze this within the time limit. Serious competitive programming sites will set higher bounds (e.g., $n \le 2 \cdot 10^5) to prevent this.
+[^2]: This is not actually true, since LeetCode's constraints say $n \le 3 \cdot 10^4$ – there are tricks to squeeze this within the time limit. Serious competitive programming sites will set higher bounds (e.g., $n \le 2 \cdot 10^5$) to prevent this.
 [^3]: Wait, didn't I just say we wanted to avoid checking some pairs? Yes, but that's only the goal of the final solution. One of the simplest problem-solving strategies is to try basic things and look for patterns – we check all values, because it helps us get as much information as we can. If it's too tedious to work out by hand, you can also write a program that outputs this table for you.
 [^4]: The wording is slightly awkward because it's possible for two adjacent elements to be equal. Once again, make sure you understand why the claim is true.
 [^5]: When solving problems, it's best to prove the claims you make. In this case, "proving" just means fully convincing yourself. If that's not possible, another good option is to stress test your solution with a bunch of examples (preferably auto-generated ones).
