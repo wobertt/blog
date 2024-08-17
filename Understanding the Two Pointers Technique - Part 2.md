@@ -17,7 +17,7 @@ Notice that the score is the product of the height and width of the rectangle cr
 <div style="page-break-after: always; visibility: hidden"> pagebreak </div>
 
 ##### First attempt (Time Limit Exceeded):
-Just as in the Two Sum solution, trying all possible pairs of indices $(i, j)$ takes $O(n^2)$ time. The new idea in this solution is to store the `best` result we've seen so far.
+Just as in the Two Sum solution, trying all possible pairs of indices $(i, j)$ takes $O(n^2)$ time. The only new idea in this solution is to store the `best` result we've seen so far.
 ```cpp
 int maxArea(vector<int>& a) {
 	const int n = a.size();
