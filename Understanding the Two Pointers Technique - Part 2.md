@@ -17,7 +17,7 @@ Notice that the score is the product of the height and width of the rectangle cr
 <div style="page-break-after: always; visibility: hidden"> pagebreak </div>
 
 ##### First attempt (Time Limit Exceeded):
-Just as in the Two Sum solution, trying all possible pairs of indices $(i, j)$ takes $O(n^2)$ time. This time though, we store the `best` result we've seen so far.
+Just as in the Two Sum solution, trying all possible pairs of indices $(i, j)$ takes $O(n^2)$ time. The new idea in this solution is to store the `best` result we've seen so far.
 ```cpp
 int maxArea(vector<int>& a) {
 	const int n = a.size();
@@ -144,8 +144,9 @@ Consider [416. Partition Equal Subset Sum](https://leetcode.com/problems/partiti
 The idea is that we are minimizing the difference between the sums of elements in $S_1$ and $S_2$ at each step. But, there's no guarantee that putting $a_i$ in the other set wouldn't lead to a valid partition, and LeetCode's first example $[1, 5, 11, 5]$ serves as a concrete example of this (what should you do with $a_2$?).
 
 In this problem, it's much harder to rule out any particular combination of elements. The simplest solution is pretty much to **try all possible partitions**, with a few optimizations involving what to do when two subsets give you the same sum. The details are more advanced and outside the scope of this post.
+<div style="page-break-after: always; visibility: hidden"> pagebreak </div>
 
 [^1]:  We could have also ignored the restriction $i < j$ and defined the score as $\min(a_i, a_j) \cdot |j - i|$.
-[^2]: This time, LeetCode's constraint of $n \le 10^5$ is more reasonable, since in the max case the number of pairs to check is $\frac{n(n-1)}{2} \approx 5 \cdot 10^{10}$. A rough estimate is that your code can run about $10^6$ to $10^9$ instructions per second, which is too slow for a 2-second time limit.
+[^2]: This time, LeetCode's constraint of $n \le 10^5$ is more reasonable, since in the max case the number of pairs to check is $\frac{n(n-1)}{2} \approx 5 \cdot 10^{10}$. A rough estimate is that the computer can run about $10^6$ to $10^9$ code instructions per second (or more, depending on your definition), which is too slow for a 2-second time limit.
 [^3]: I changed $a_9$ from $7$ to $5$ because $(2, 9)$ happened to still be the maximum value. You might say this is cheating – how did I know to do this, instead of assuming the incorrect claim that the maximum score always occurs at one of the endpoints? The answer is a bit unsatisfying: my intuition told me this claim was fishy because $a_9$ could be any value. In general, you should be suspicious of unproven claims or patterns. In this case, you'd likely to find a counterexample after trying a few more arrays.
-[^4]: This idea can be generalized to sliding window problems such as [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/). The pairs you check are different, but you still use the same idea of skipping most pairs by proving that they can't be optimal.
+[^4]: This pair skipping idea can be further generalized to sliding window problems such as [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/). The pairs you check are different, but you're still trying to skip most pairs by proving that they can't be optimal.
