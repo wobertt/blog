@@ -21,7 +21,7 @@ The goal is to find a pair of indices $(i, j)$, where $1 \le i < j \le n$, such 
 <div style="page-break-after: always; visibility: hidden"> pagebreak </div>
 
 ##### First attempt (Time Limit Exceeded):
-Try all required pairs of indices $(i, j)$ to see if they satisfy $a_i + a_j = t$. The number of pairs to check is bounded by $n^2$[^1], so our algorithm runs in $O(n^2)$ time.
+Try all possible pairs of indices $(i, j)$ to see if they satisfy $a_i + a_j = t$. The number of pairs to check is bounded by $n^2$[^1], so our algorithm runs in $O(n^2)$ time.
 
 ```cpp
 vector<int> twoSum(vector<int>& a, int t) {
@@ -43,7 +43,7 @@ vector<int> twoSum(vector<int>& a, int t) {
 ##### Making Observations:
 Since there are about $n^2$ pairs to check, any algorithm that checks all pairs will be too slow.[^2] **We'll have to figure out how to rule out some pairs without checking them.**
 
-Consider the array $a = [1, 2, 5, 6, 11]$ and the target $t = 11$. Let's calculate $a_i + a_j$ for all required pairs of indices $(i, j)$[^3]:
+Consider the array $a = [1, 2, 5, 6, 11]$ and the target $t = 11$. Let's calculate $a_i + a_j$ for all possible pairs of indices $(i, j)$[^3]:
 
 | (i, j) | 1   | 2   | 3   | 4   | 5   |
 | ------ | --- | --- | --- | --- | --- |
