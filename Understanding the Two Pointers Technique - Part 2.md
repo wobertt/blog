@@ -50,8 +50,8 @@ I've written $(\text{min}) \cdot (\text{length}) = \text{score}$ in each cell. T
 
 Still, there is some regularity:
 - Consider the first row ($i=1$). Since $a_1$ is the smallest value in the array, $\min(a_1, a_j)$ is constant for this entire row. That means the maximum score for this row must be at $(1, 9)$.
-- Consider the second row $(i=2)$. Since $a_2$ is very large, $\min(a_2, a_j)$ is **not** constant on this row – it varies with $a_j$. It's hard to know the maximum score for this row without checking a  lot of values.[^3]
-- Instead consider the ninth column $(j=9)$. $\min(a_i, a_9)$ fluctuates, but we know that $a_2$ is very large, in the sense that $a_2 \ge a_9$. This shows that $(3, 9)$, $(4, 9)$, $(5, 9)$,$(6, 9)$, $(7, 9)$, and $(8, 9)$ must have smaller score than $(2, 9)$. Can you see why?
+- Consider the second row $(i=2)$. Since $a_2$ is very large, $\min(a_2, a_j)$ is **not** constant on this row – it varies with $a_j$. It's hard to know the maximum score for this row without checking a lot of values.[^3]
+- Instead, consider the ninth column $(j=9)$. $\min(a_i, a_9)$ fluctuates, but we know that $a_2$ is very large, in the sense that $a_2 \ge a_9$. This shows that $(3, 9)$, $(4, 9)$, $(5, 9)$,$(6, 9)$, $(7, 9)$, and $(8, 9)$ must have smaller score than $(2, 9)$. Can you see why?
 
 >[!info] Claim
 >Consider any two indices $l$ and $r$, where $l < r$.
@@ -85,7 +85,7 @@ A good idea is to draw a diagram (or use the one on LeetCode) to follow along. I
 >
 >Finally, report $b$ as the maximum score over all pairs.
 
-Step 2 and 3 use our claim to reduce the number of pairs we actually checked.
+Steps 2 and 3 use our claim to reduce the number of pairs we had to check.
 
 The idea is that if $a_l \le a_r$, checking $(l, r)$ makes it useless to check $(l, j)$ for any other value of $j$. **Thus, we're completely done with $l$**, so we can increment it. 
 
@@ -121,13 +121,13 @@ is true, and it is one of the key observations used in our claim.
 
 However, I take issue with the other intuition he provides.
 
-> (6:42) How are we going to update our pointer? Well, we're going to look at what's the minimum height. [...] Why would I shift my right pointer, when it has a height of 7, when I could instead shift my left pointer, which has a height of 1, **and potentially increase it?**
+> (6:42) How are we going to update our pointer? Well, we're going to look at what's the minimum height. [...] Why would I shift my right pointer, [which] has a height of 7, when I could instead shift my left pointer, which has a height of 1, **and potentially increase it?**
 
 Given pointers $l$ and $r$, it seems that NeetCode is saying the goal is to try to update the pointers to maximize $a_l$ and $a_r$. **This is completely wrong**. If this really was the goal, why are we even using the two pointers technique – can't we directly find the two largest values in the array?
 
-Notice that if we increase $l$ by $1$, then the algorithm will never check another pair $(l, i)$ with the old value of $l$ again, for any value of $i$. So, the only way we can justify increasing $l$ is if we know that **all other pairs using $l$ are not optimal.**
+Notice that if we increase $l$ by $1$, the algorithm will never check another pair $(l, i)$ with the old value of $l$ again, for any value of $i$. So, the only way we can justify increasing $l$ is if we know that **all other pairs using $l$ are not optimal.**
 
-This is where we used our claim. NeetCode makes no mention of this, but he obtains the correct algorithm for reasons that are unrelated to the intuition he provides. There are also other parts of the video where I disagree with his intuition (e.g., why $l=1$ and $r=n$ initially, which pointer to change when $a_l = a_r$), but the above quote is my main issue.
+This is where we used our claim. NeetCode makes no mention of this, but he obtains the correct algorithm for reasons that are unrelated to the intuition he provides. There are also other parts of the video where I disagree with his intuition (e.g., why $l=1$ and $r=n$ initially, and which pointer to change when $a_l = a_r$), but the above quote is my main issue.
 
 ##### Aside - An example where being greedy fails
 
@@ -143,9 +143,9 @@ Consider [416. Partition Equal Subset Sum](https://leetcode.com/problems/partiti
 
 The idea is that we are minimizing the difference between the sums of elements in $S_1$ and $S_2$ at each step. But, there's no guarantee that putting $a_i$ in the other set wouldn't lead to a valid partition, and LeetCode's first example $[1, 5, 11, 5]$ serves as a concrete example of this (what should you do with $a_2$?).
 
-In this problem, it's much harder to rule out any particular combination of elements. In fact, the simplest solution is pretty much to **try all possible partitions**, with a few optimizations involving what to do when two subsets give you the same sum. The details are more advanced and outside the scope of this post.
+In this problem, it's much harder to rule out any particular combination of elements. The simplest solution is pretty much to **try all possible partitions**, with a few optimizations involving what to do when two subsets give you the same sum. The details are more advanced and outside the scope of this post.
 
 [^1]:  We could have also ignored the restriction $i < j$ and defined the score as $\min(a_i, a_j) \cdot |j - i|$.
-[^2]: This time, LeetCode's constraint of $n \le 10^5$ is more reasonable, since in the max case the number of pairs to check is $\frac{n(n-1)}{2} \approx 5 \cdot 10^{10}$. A rough estimate is that your code can run about $10^6$ to $10^9$ instructions per second, which is clearly too slow for a 2 second time limit.
-[^3]: I changed $a_9$ from $7$ to $5$ because $(2, 9)$ happened to still be the maximum value. You might say this is cheating – how did I know to do this, instead of assuming the incorrect claim that the maximum score always occurs at one of the endpoints? The answer is a bit unsatisfying: my intuition told me this claim was fishy, because $a_9$ could be any value. In general, you should be suspicious of any unproven claims or patterns that you've made. In this case, you'd be likely to find a counterexample after trying a few more arrays.
-[^4]: This idea can be generalized further to sliding window problems such as [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/). The pairs you check are different, but you still use the same idea of skipping most pairs by proving that they can't be optimal.
+[^2]: This time, LeetCode's constraint of $n \le 10^5$ is more reasonable, since in the max case the number of pairs to check is $\frac{n(n-1)}{2} \approx 5 \cdot 10^{10}$. A rough estimate is that your code can run about $10^6$ to $10^9$ instructions per second, which is too slow for a 2-second time limit.
+[^3]: I changed $a_9$ from $7$ to $5$ because $(2, 9)$ happened to still be the maximum value. You might say this is cheating – how did I know to do this, instead of assuming the incorrect claim that the maximum score always occurs at one of the endpoints? The answer is a bit unsatisfying: my intuition told me this claim was fishy because $a_9$ could be any value. In general, you should be suspicious of unproven claims or patterns. In this case, you'd likely to find a counterexample after trying a few more arrays.
+[^4]: This idea can be generalized to sliding window problems such as [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/). The pairs you check are different, but you still use the same idea of skipping most pairs by proving that they can't be optimal.
