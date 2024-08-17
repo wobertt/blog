@@ -112,7 +112,7 @@ int maxArea(vector<int>& a) {
 ```
 
 Once again, the words "two pointers" are just an implementation detail. The key theme, which is shared with Two Sum, is that we can quickly reduce the problem of checking pairs in a range $[l, r]$ to some smaller range, either $[l+1, r]$ or $[l, r-1]$. In fact, you could draw a table of `?`s for this problem, and see that the process of checking and skipping pairs is almost identical to that of Two Sum[^4].
-##### Aside: Why I don't like [NeetCode's explanation](https://youtu.be/UuiTKBwPgAo?t=340)
+##### Aside – Why I don't like [NeetCode's explanation](https://youtu.be/UuiTKBwPgAo?t=340):
 
 Firstly, to his credit – the statement that
 
@@ -130,7 +130,7 @@ Notice that if we increase $l$ by $1$, the algorithm will never check another pa
 
 This is where we used our claim. NeetCode makes no mention of this, but he obtains the correct algorithm for reasons that are unrelated to the intuition he provides. There are also other parts of the video where I disagree with his intuition (e.g., why $l=1$ and $r=n$ initially, and which pointer to change when $a_l = a_r$), but the above quote is my main issue.
 
-##### Aside - An example where being greedy fails
+##### Aside – An example where being greedy fails:
 
 Consider [416. Partition Equal Subset Sum](https://leetcode.com/problems/partition-equal-subset-sum/). Here's an algorithm that shows choosing the best next step from our current point of view, called a **greedy approach**, rather than taking a global view, can be wrong.
 
