@@ -128,7 +128,7 @@ Given pointers $l$ and $r$, it seems that NeetCode is saying the goal is to try 
 
 Notice that if we increase $l$ by $1$, the algorithm will never check another pair $(l, i)$ with the old value of $l$ again, for any value of $i$. So, the only way we can justify increasing $l$ is if we know that **all other pairs using $l$ are not optimal.**
 
-This is where we used our claim. NeetCode makes no mention of this, but he obtains the correct algorithm for reasons that are unrelated to the intuition he provides. There are also other parts of the video where I disagree with his intuition (e.g., why $l=1$ and $r=n$ initially, and which pointer to change when $a_l = a_r$), but the above quote is my main issue.
+This is where we used our claim. NeetCode makes no mention of this – his wrong explanation just happens to give the same answer as the correct algorithm. There are also other parts of the video where I disagree with his intuition (e.g., why $l=1$ and $r=n$ initially, and which pointer to change when $a_l = a_r$), but the above quote is my main issue.
 
 ##### Aside – An example where being greedy fails:
 
