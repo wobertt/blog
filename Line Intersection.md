@@ -9,11 +9,11 @@ Oct 6, 2024
 >**What's the maximum distance $I$ can be from the origin?**
 
 ![[Line Intersection.png | center | 400]]
-Here are some multiple-choice options. In each case, $|I|$ is the distance from $I$ to the origin.
+Here are some multiple-choice options. $|I|$ is the distance from $I$ to the origin.
 1. $|I|$ is $\Theta(M)$ in the worst case.
 2. $|I|$ is $\Theta(M^2)$ in the worst case.
 3. $|I|$ is $\Theta(M^3)$ in the worst case.
-4. $|I|$ can be arbitrarily large in the worst case.
+4. $|I|$ can be arbitrarily large.
 
 Try it for yourself! My answers start on the next page.
 ##### **Wrong answer 1:** $|I|$ is $\Theta(M)$ in the worst case.
