@@ -1,9 +1,9 @@
-
+Sept 14, 2024
+****
 **Note:** In many DP problems, the numbers get so large that they stop fitting in 32-bit and even 64-bit integers. To get around this, many sites will tell you to compute the answer modulo some prime $p \approx 10^9$. However, to simplify the presentation, I will pretend no overflow occurs.
 
 Here is the list of problems. The solutions will start on the next page.
-###### Problem 1:
-(Source: https://leetcode.com/problems/climbing-stairs/)
+###### Problem 1 (Source: https://leetcode.com/problems/climbing-stairs/):
 You are climbing a staircase. It takes $n$ steps to reach the top.
 Each time, you can either climb $1$ or $2$ steps. In how many distinct ways can you climb to the top? Compute this in $O(n)$ time.
 
@@ -11,13 +11,11 @@ Example: if $n=3$, then there are three ways to reach the top:
 1. 1 step + 1 step + 1 step
 2. 1 step + 2 steps
 3. 2 steps + 1 step
-###### Problem 2:
-(Source: https://leetcode.com/problems/house-robber/)
+###### Problem 2 (Source: https://leetcode.com/problems/house-robber/):
 You are given an array of integers $a_1, a_2, \dots, a_n$.
 
 You can pick any set of indices $S \subseteq \{1, 2, \dots, n\}$, with the constraint that no two indices in $S$ differ by $1$. Find the maximum possible value of $\sum_{i \in S}a_i$, in $O(n)$ time.
-###### Problem 3:
-(Source: https://youtu.be/YBSt1jYwVfU&t=700)
+###### Problem 3 (Source: https://youtu.be/YBSt1jYwVfU&t=700):
 You are climbing a staircase. It takes $n$ steps to reach the top.
 In one move, you can take either $1$ or $2$ steps. How many ways can you reach the top, if you can take at most $k$ moves? Compute this in $O(nk)$ time. You may assume $n$ and $k$ are positive integers.
 <div style="page-break-after: always; visibility: hidden"> pagebreak </div>
