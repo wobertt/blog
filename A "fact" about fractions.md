@@ -2,11 +2,13 @@ Nov 29, 2024
 ****
 I was checking my work on a problem recently[^1], where I reached the equation
 $$
--\frac{1}{8}-\frac{3}{4}-\frac{3}{2}+\frac{1}{24}\stackrel{?}{=} \frac{7}{3}.
+-\frac{1}{8}-\frac{3}{4}-\frac{3}{2}+\frac{1}{24}\stackrel{?}{=} -\frac{7}{3}.
 $$
 At this point I concluded that I must have made a mistake. Without even calculating, I knew the left side had denominator $24$, but the right side had denominator $3$.
 
-Or so I thought. Actually, the two sides are equal. Is it intuitive that the denominator, in lowest terms, can decrease? Maybe. The example
+...Or so I thought. Actually, the two sides are equal.
+
+Is it intuitive that the denominator, in lowest terms, can decrease? Maybe—the example
 $$
 \frac{1}{3} + \frac{1}{6} = \frac{1}{2}
 $$
